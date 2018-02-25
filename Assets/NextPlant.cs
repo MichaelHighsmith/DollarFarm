@@ -37,7 +37,7 @@ public class NextPlant : MonoBehaviour
 
     public void Next()
     {
-        if (Models[i].activeInHierarchy == true && i < 1)
+        if (Models[i].activeInHierarchy == true && i < 3)
         {
             Models[i].SetActive(false);
             Models[i + 1].SetActive(true);
