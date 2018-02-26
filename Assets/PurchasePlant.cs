@@ -16,18 +16,18 @@ public class PurchasePlant : MonoBehaviour {
 
     public void BuyRedFlower()
     {
-        shedManager.SetPlantFeature("REDFLOWER", "waterInterval", 15);
-        shedManager.SetPlantFeature("REDFLOWER", "experience", 15);
-        shedManager.SetPlantFeature("REDFLOWER", "lastWatered", 0);
+        shedManager.SetPlantFeature("redflower", "waterInterval", 15);
+        shedManager.SetPlantFeature("redflower", "experience", 15);
+        shedManager.SetPlantFeature("redflower", "lastWatered", 0);
         shedManager.Save();
         Debug.LogError("BuyRedFlower called");
     }
 
     public void BuyBlueFlower()
     {
-        shedManager.SetPlantFeature("BLUEFLOWER", "waterInterval", 30);
-        shedManager.SetPlantFeature("BLUEFLOWER", "experience", 30);
-        shedManager.SetPlantFeature("BLUEFLOWER", "lastWatered", 0);
+        shedManager.SetPlantFeature("blueflower", "waterInterval", 30);
+        shedManager.SetPlantFeature("blueflower", "experience", 30);
+        shedManager.SetPlantFeature("blueflower", "lastWatered", 0);
         shedManager.Save();
         Debug.LogError("BuyBlueFlower called");
     }

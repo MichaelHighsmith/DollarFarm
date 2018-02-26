@@ -18,7 +18,7 @@ public class CloudRain : MonoBehaviour
     void Update()
     {
 
-        anim.Play("rain");
+        anim.Play("raincloud");
 
     }
 }

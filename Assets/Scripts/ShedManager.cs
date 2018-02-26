@@ -8,7 +8,7 @@ using System.IO;
 
 public class ShedManager : MonoBehaviour {
 
-    Dictionary<string, Dictionary<string, int>> shedPlants;
+    public Dictionary<string, Dictionary<string, int>> shedPlants;
 
     int changeCounter = 0;
     string[] plantArray;
@@ -27,15 +27,15 @@ public class ShedManager : MonoBehaviour {
         //With the changeCounter +1, ShedList's update method will be called once to update the plant list.  
         if(shedPlants == null)
         {
-            SetPlantFeature("redplant", "plantName", 1);
-            SetPlantFeature("redplant", "waterInterval", 10);
-            SetPlantFeature("redplant", "experience", 10);
-            SetPlantFeature("redplant", "lastWatered", 5);
+            SetPlantFeature("freshpot", "plantName", 1);
+            SetPlantFeature("freshpot", "waterInterval", 10);
+            SetPlantFeature("freshpot", "experience", 10);
+            SetPlantFeature("freshpot", "lastWatered", 5);
 
-            SetPlantFeature("blueplant", "plantName", 2);
-            SetPlantFeature("blueplant", "waterInterval", 20);
-            SetPlantFeature("blueplant", "experience", 20);
-            SetPlantFeature("blueplant", "lastWatered", 10);
+            SetPlantFeature("smallplant", "plantName", 2);
+            SetPlantFeature("smallplant", "waterInterval", 20);
+            SetPlantFeature("smallplant", "experience", 20);
+            SetPlantFeature("smallplant", "lastWatered", 10);
         }
         
         Load();
