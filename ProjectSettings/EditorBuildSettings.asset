@@ -9,5 +9,11 @@ EditorBuildSettings:
     path: Assets/Menu.unity
     guid: 1c33652b9ab8a0d41b789544ee5844a0
   - enabled: 1
+    path: Assets/shop.unity
+    guid: 6b55888822591dd428480a091353263a
+  - enabled: 1
     path: Assets/main.unity
     guid: 5ff1d85c290a2474098b6198bfe91b1c
+  - enabled: 1
+    path: Assets/shed.unity
+    guid: a6b534986642ba840850fbe87d750962

@@ -15,4 +15,14 @@ public class MainMenu : MonoBehaviour {
         Application.Quit();
     }
 
+    public void OpenShed()
+    {
+        SceneManager.LoadScene("shed");
+    }
+
+    public void OpenShop()
+    {
+        SceneManager.LoadScene("shop");
+    }
+
 }
