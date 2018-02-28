@@ -27,15 +27,10 @@ public class ShedManager : MonoBehaviour {
         //With the changeCounter +1, ShedList's update method will be called once to update the plant list.  
         if(shedPlants == null)
         {
-            SetPlantFeature("freshpot", "plantName", 1);
-            SetPlantFeature("freshpot", "waterInterval", 10);
-            SetPlantFeature("freshpot", "experience", 10);
-            SetPlantFeature("freshpot", "lastWatered", 5);
-
-            SetPlantFeature("smallplant", "plantName", 2);
-            SetPlantFeature("smallplant", "waterInterval", 20);
-            SetPlantFeature("smallplant", "experience", 20);
-            SetPlantFeature("smallplant", "lastWatered", 10);
+            SetPlantFeature("redflower", "plantName", 1);
+            SetPlantFeature("redflower", "waterInterval", 10);
+            SetPlantFeature("redflower", "experience", 0);
+            SetPlantFeature("redflower", "lastWatered", 0);
         }
         
         Load();
@@ -107,8 +102,8 @@ public class ShedManager : MonoBehaviour {
         
         bf.Serialize(file, Plants.plants);
         file.Close();
-        Debug.LogError("Save called");
-        Debug.LogError(Application.persistentDataPath + "/shedInfo.dat");
+        Debug.Log("Save called");
+        Debug.Log(Application.persistentDataPath + "/shedInfo.dat");
     }
 
     //Load the user's shed data
@@ -120,7 +115,7 @@ public class ShedManager : MonoBehaviour {
             
             shedPlants = (Dictionary<string, Dictionary<string, int>>) bf.Deserialize(file);
             file.Close();
-            Debug.LogError("LoadCalled");
+            Debug.Log("LoadCalled");
         }
     }
 	

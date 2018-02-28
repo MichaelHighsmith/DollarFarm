@@ -25,6 +25,8 @@ public class NextPlant : MonoBehaviour
 
     public void WaterPlant() {
         StartCoroutine(makeCloud());
+
+
     }
 
     //Display cloud watering for 4 seconds
@@ -55,6 +57,8 @@ public class NextPlant : MonoBehaviour
             //play full grown plant animation
             Models[i].SetActive(true);
         }
+
+
     }
 
     public void Next() {
