@@ -25,40 +25,77 @@ public class NextPlant : MonoBehaviour
 
     public void WaterPlant() {
         StartCoroutine(makeCloud());
-
-
     }
 
     //Display cloud watering for 4 seconds
     public IEnumerator makeCloud() {
-        RainCloud.SetActive(true);
-        yield return new WaitForSeconds(4);
-        RainCloud.SetActive(false);
 
-        //add experience
         string currentPlant = Models[i].name;
-        int currentExperience = shedManager.GetPlantFeature(currentPlant, "experience") + 5;
-        shedManager.SetPlantFeature(currentPlant, "experience", currentExperience);
-        shedManager.Save();
 
-        Models[i].SetActive(false);
-        Models[i + 1].SetActive(false);
-        Models[i + 2].SetActive(false);
+        //Make sure the plant is ready to be rewatered
+        int waterInterval = shedManager.GetPlantFeature(currentPlant, "waterInterval");
+        int lastWatered = shedManager.GetPlantFeature(currentPlant, "lastWatered");
+        DateTime now = DateTime.Now;
+        int currentTime = (int)now.Subtract(DateTime.MinValue).TotalMinutes;
+        int lastWateredDisplay = currentTime - lastWatered;
 
-        if (currentExperience < 15) {
-            //play small version animation
-            Models[i + 1].SetActive(true);
+        if (waterInterval <= lastWateredDisplay) {
+            //add experience
+
+            int currentExperience = shedManager.GetPlantFeature(currentPlant, "experience") + 5;
+            shedManager.SetPlantFeature(currentPlant, "experience", currentExperience);
+            shedManager.Save();
+
+            Models[i].SetActive(false);
+            Models[i + 1].SetActive(false);
+            Models[i + 2].SetActive(false);
+
+            if (currentExperience < 15)
+            {
+                //play small version animation
+                Models[i + 1].SetActive(true);
+            }
+            else if (currentExperience >= 15 && currentExperience < 25)
+            {
+                //play medium animation
+                Models[i + 2].SetActive(true);
+            }
+            else
+            {
+                //play full grown plant animation
+                Models[i].SetActive(true);
+            }
+
+            //Water plant
+            
+            shedManager.SetPlantFeature(currentPlant, "lastWatered", currentTime);
+
+            shedManager.Save();
+
+            RainCloud.SetActive(true);
+            yield return new WaitForSeconds(4);
+            RainCloud.SetActive(false);
+        }  else {
+            Debug.Log("It's too early to water this plant again!");
         }
-        else if (currentExperience >= 15 && currentExperience < 25) {
-            //play medium animation
-            Models[i + 2].SetActive(true);
-        }
-        else {
-            //play full grown plant animation
-            Models[i].SetActive(true);
-        }
+    }
 
+    public void CheckIfWilted()
+    {
+        string currentPlant = Models[i].name;
 
+        DateTime now = DateTime.Now;
+        int result = (int)now.Subtract(DateTime.MinValue).TotalMinutes;
+
+        int lastWatered = shedManager.GetPlantFeature(currentPlant, "lastWatered");
+
+        if(result - lastWatered > 2)
+        {
+            Debug.Log("It's dead its been so long");
+        } else
+        {
+            Debug.Log("Your plant is still alive!");
+        }
     }
 
     public void Next() {
@@ -88,7 +125,10 @@ public class NextPlant : MonoBehaviour
             if (shedManager.shedPlants.ContainsKey(currentPlant)) {
                 //Check to see what level the plant is at (for which animation to play)
                 int experience = shedManager.GetPlantFeature(currentPlant, "experience");
-                if(experience < 15) {
+
+                CheckIfWilted();
+
+                if (experience < 15) {
                     //play small version animation
                     Models[i + 1].SetActive(true);
                 } else if(experience >= 15 && experience < 25) {
@@ -105,18 +145,18 @@ public class NextPlant : MonoBehaviour
                 i = oldModel;
                 currentPlant = Models[i].name;
                 int experience = shedManager.GetPlantFeature(currentPlant, "experience");
-                if (experience < 15)
-                {
+
+                CheckIfWilted();
+
+                if (experience < 15) {
                     //play small version animation
                     Models[i + 1].SetActive(true);
                 }
-                else if (experience >= 15 && experience < 25)
-                {
+                else if (experience >= 15 && experience < 25) {
                     //play medium animation
                     Models[i + 2].SetActive(true);
                 }
-                else
-                {
+                else {
                     //play full grown plant animation
                     Models[i].SetActive(true);
                 }
@@ -135,7 +175,7 @@ public class NextPlant : MonoBehaviour
             Models[i].SetActive(false);
             Models[i + 1].SetActive(false);
             Models[i + 2].SetActive(false);
-            Debug.LogError("[revious" + i);
+            Debug.LogError("previous" + i);
 
             i = i - 3;
             string currentPlant = Models[i].name;
@@ -150,18 +190,18 @@ public class NextPlant : MonoBehaviour
             
             if (shedManager.shedPlants.ContainsKey(currentPlant)) {
                 int experience = shedManager.GetPlantFeature(currentPlant, "experience");
-                if (experience < 15)
-                {
+
+                CheckIfWilted();
+
+                if (experience < 15) {
                     //play small version animation
                     Models[i + 1].SetActive(true);
                 }
-                else if (experience >= 15 && experience < 25)
-                {
+                else if (experience >= 15 && experience < 25) {
                     //play medium animation
                     Models[i + 2].SetActive(true);
                 }
-                else
-                {
+                else {
                     //play full grown plant animation
                     Models[i].SetActive(true);
                 }
@@ -171,18 +211,18 @@ public class NextPlant : MonoBehaviour
                 i = oldModel;
                 currentPlant = Models[i].name;
                 int experience = shedManager.GetPlantFeature(currentPlant, "experience");
-                if (experience < 15)
-                {
+
+                CheckIfWilted();
+
+                if (experience < 15) {
                     //play small version animation
                     Models[i + 1].SetActive(true);
                 }
-                else if (experience >= 15 && experience < 25)
-                {
+                else if (experience >= 15 && experience < 25) {
                     //play medium animation
                     Models[i + 2].SetActive(true);
                 }
-                else
-                {
+                else {
                     //play full grown plant animation
                     Models[i].SetActive(true);
                 }

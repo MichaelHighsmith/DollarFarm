@@ -27,10 +27,13 @@ public class ShedManager : MonoBehaviour {
         //With the changeCounter +1, ShedList's update method will be called once to update the plant list.  
         if(shedPlants == null)
         {
-            SetPlantFeature("redflower", "plantName", 1);
-            SetPlantFeature("redflower", "waterInterval", 10);
-            SetPlantFeature("redflower", "experience", 0);
-            SetPlantFeature("redflower", "lastWatered", 0);
+            SetPlantFeature("Red Flower", "waterInterval", 10);
+            SetPlantFeature("Red Flower", "experience", 0);
+
+            DateTime now = DateTime.Now;
+            int result = (int)now.Subtract(DateTime.MinValue).TotalMinutes;
+
+            SetPlantFeature("Red Flower", "lastWatered", result);
         }
         
         Load();
@@ -85,7 +88,10 @@ public class ShedManager : MonoBehaviour {
         plantArray = shedPlants.Keys.ToArray();
         foreach (string plant in plantArray)
         {
-            SetPlantFeature(plant, "lastWatered", 0);
+            //Water plant
+            DateTime now = DateTime.Now;
+            int result = (int)now.Subtract(DateTime.MinValue).TotalMinutes;
+            SetPlantFeature(plant, "lastWatered", result);
         }
         Save();
     }

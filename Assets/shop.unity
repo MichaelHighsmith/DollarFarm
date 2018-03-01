@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 253297449}
   - component: {fileID: 253297448}
   m_Layer: 5
-  m_Name: BuyRedFlower
+  m_Name: Buy Red Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1408226800}
-        m_MethodName: BuyRedFlower
+        m_MethodName: buyPlant
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 460967045}
   - component: {fileID: 460967044}
   m_Layer: 5
-  m_Name: BuyBlueFlower
+  m_Name: Buy Blue Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1408226800}
-        m_MethodName: BuyBlueFlower
+        m_MethodName: buyPlant
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1341,7 +1341,7 @@ GameObject:
   - component: {fileID: 1375107091}
   - component: {fileID: 1375107090}
   m_Layer: 5
-  m_Name: BuyPurpleFlower
+  m_Name: Buy Purple Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1406,7 +1406,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1408226800}
-        m_MethodName: BuyPurpleFlower
+        m_MethodName: buyPlant
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1987,7 +1987,7 @@ GameObject:
   - component: {fileID: 2085787268}
   - component: {fileID: 2085787267}
   m_Layer: 5
-  m_Name: BuyGreenFlower
+  m_Name: Buy Green Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2052,7 +2052,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1408226800}
-        m_MethodName: BuyGreenFlower
+        m_MethodName: buyPlant
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

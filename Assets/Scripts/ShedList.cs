@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ShedList : MonoBehaviour {
 
@@ -47,7 +48,13 @@ public class ShedList : MonoBehaviour {
             go.transform.Find("PlantName").GetComponent<Text>().text = name;
             go.transform.Find("WaterInterval").GetComponent<Text>().text = shedManager.GetPlantFeature(name, "waterInterval").ToString();
             go.transform.Find("Experience").GetComponent<Text>().text = shedManager.GetPlantFeature(name, "experience").ToString();
-            go.transform.Find("LastWatered").GetComponent<Text>().text = shedManager.GetPlantFeature(name, "lastWatered").ToString();
+
+            int lastWatered = shedManager.GetPlantFeature(name, "lastWatered");
+            DateTime now = DateTime.Now;
+            int currentTime = (int)now.Subtract(DateTime.MinValue).TotalMinutes;
+            int lastWateredDisplay = currentTime - lastWatered;
+     
+            go.transform.Find("LastWatered").GetComponent<Text>().text = lastWateredDisplay.ToString() + " Minutes";
 
         }
     }
