@@ -40,22 +40,27 @@ public class NextPlant : MonoBehaviour
         int lastWateredDisplay = currentTime - lastWatered;
 
         if (waterInterval <= lastWateredDisplay) {
+
             //add experience
 
-            int currentExperience = shedManager.GetPlantFeature(currentPlant, "experience") + 5;
+            int experienceGained = shedManager.GetPlantFeature(currentPlant, "experiencePerWater");
+            int currentExperience = shedManager.GetPlantFeature(currentPlant, "experience") + experienceGained;
             shedManager.SetPlantFeature(currentPlant, "experience", currentExperience);
             shedManager.Save();
+
+            int experienceToGrow = shedManager.GetPlantFeature(currentPlant, "experienceToGrow");
+            int experienceToComplete = shedManager.GetPlantFeature(currentPlant, "experienceToComplete");
 
             Models[i].SetActive(false);
             Models[i + 1].SetActive(false);
             Models[i + 2].SetActive(false);
 
-            if (currentExperience < 15)
+            if (currentExperience < experienceToGrow)
             {
                 //play small version animation
                 Models[i + 1].SetActive(true);
             }
-            else if (currentExperience >= 15 && currentExperience < 25)
+            else if (currentExperience >= experienceToGrow && currentExperience < experienceToComplete)
             {
                 //play medium animation
                 Models[i + 2].SetActive(true);
@@ -67,9 +72,7 @@ public class NextPlant : MonoBehaviour
             }
 
             //Water plant
-            
             shedManager.SetPlantFeature(currentPlant, "lastWatered", currentTime);
-
             shedManager.Save();
 
             RainCloud.SetActive(true);
@@ -99,7 +102,14 @@ public class NextPlant : MonoBehaviour
     }
 
     public void Next() {
-        if (i < 9) {
+
+        //check if the raincloud is already playing.  If it is, say you have to wait to finish watering and don't change plants 
+        if (RainCloud.activeInHierarchy) {
+            Debug.Log("You must wait to finish watering!");
+            return;
+        }
+
+        if (i < 18) {
 
             int oldModel = i;
             Models[i].SetActive(false);
@@ -113,7 +123,7 @@ public class NextPlant : MonoBehaviour
             Debug.LogError("current plant is " + currentPlant);
 
             //check if that object is in the shedPlants array, if not then keep moving down the object list.
-            while (shedManager.shedPlants.ContainsKey(currentPlant) == false && i < 9) {
+            while (shedManager.shedPlants.ContainsKey(currentPlant) == false && i < 18) {
                 i = i + 3;
                 currentPlant = Models[i].name;
                 Debug.Log(currentPlant);
@@ -125,13 +135,15 @@ public class NextPlant : MonoBehaviour
             if (shedManager.shedPlants.ContainsKey(currentPlant)) {
                 //Check to see what level the plant is at (for which animation to play)
                 int experience = shedManager.GetPlantFeature(currentPlant, "experience");
+                int experienceToGrow = shedManager.GetPlantFeature(currentPlant, "experienceToGrow");
+                int experienceToComplete = shedManager.GetPlantFeature(currentPlant, "experienceToComplete");
 
                 CheckIfWilted();
 
-                if (experience < 15) {
+                if (experience < experienceToGrow) {
                     //play small version animation
                     Models[i + 1].SetActive(true);
-                } else if(experience >= 15 && experience < 25) {
+                } else if(experience < experienceToComplete) {
                     //play medium animation
                     Models[i + 2].SetActive(true);
                 } else {
@@ -145,14 +157,16 @@ public class NextPlant : MonoBehaviour
                 i = oldModel;
                 currentPlant = Models[i].name;
                 int experience = shedManager.GetPlantFeature(currentPlant, "experience");
+                int experienceToGrow = shedManager.GetPlantFeature(currentPlant, "experienceToGrow");
+                int experienceToComplete = shedManager.GetPlantFeature(currentPlant, "experienceToComplete");
 
                 CheckIfWilted();
 
-                if (experience < 15) {
+                if (experience < experienceToGrow) {
                     //play small version animation
                     Models[i + 1].SetActive(true);
                 }
-                else if (experience >= 15 && experience < 25) {
+                else if (experience < experienceToComplete) {
                     //play medium animation
                     Models[i + 2].SetActive(true);
                 }
@@ -169,7 +183,13 @@ public class NextPlant : MonoBehaviour
     public void Prev() {
 
         //Same logic as with "Next()"
+        if (RainCloud.activeInHierarchy) {
+            Debug.Log("You must wait to finish watering!");
+            return;
+        }
+
         if (i > 0) {
+
 
             int oldModel = i;
             Models[i].SetActive(false);
@@ -190,14 +210,16 @@ public class NextPlant : MonoBehaviour
             
             if (shedManager.shedPlants.ContainsKey(currentPlant)) {
                 int experience = shedManager.GetPlantFeature(currentPlant, "experience");
+                int experienceToGrow = shedManager.GetPlantFeature(currentPlant, "experienceToGrow");
+                int experienceToComplete = shedManager.GetPlantFeature(currentPlant, "experienceToComplete");
 
                 CheckIfWilted();
 
-                if (experience < 15) {
+                if (experience < experienceToGrow) {
                     //play small version animation
                     Models[i + 1].SetActive(true);
                 }
-                else if (experience >= 15 && experience < 25) {
+                else if (experience < experienceToComplete) {
                     //play medium animation
                     Models[i + 2].SetActive(true);
                 }
@@ -211,14 +233,16 @@ public class NextPlant : MonoBehaviour
                 i = oldModel;
                 currentPlant = Models[i].name;
                 int experience = shedManager.GetPlantFeature(currentPlant, "experience");
+                int experienceToGrow = shedManager.GetPlantFeature(currentPlant, "experienceToGrow");
+                int experienceToComplete = shedManager.GetPlantFeature(currentPlant, "experienceToComplete");
 
                 CheckIfWilted();
 
-                if (experience < 15) {
+                if (experience < experienceToGrow) {
                     //play small version animation
                     Models[i + 1].SetActive(true);
                 }
-                else if (experience >= 15 && experience < 25) {
+                else if (experience < experienceToComplete) {
                     //play medium animation
                     Models[i + 2].SetActive(true);
                 }

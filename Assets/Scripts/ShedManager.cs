@@ -27,13 +27,16 @@ public class ShedManager : MonoBehaviour {
         //With the changeCounter +1, ShedList's update method will be called once to update the plant list.  
         if(shedPlants == null)
         {
-            SetPlantFeature("Red Flower", "waterInterval", 10);
+            SetPlantFeature("Red Flower", "waterInterval", 1);
             SetPlantFeature("Red Flower", "experience", 0);
+            SetPlantFeature("Red Flower", "experiencePerWater", 6);
 
             DateTime now = DateTime.Now;
             int result = (int)now.Subtract(DateTime.MinValue).TotalMinutes;
 
             SetPlantFeature("Red Flower", "lastWatered", result);
+            SetPlantFeature("Red Flower", "experienceToGrow", 10);
+            SetPlantFeature("Red Flower", "experienceToComplete", 20);
         }
         
         Load();

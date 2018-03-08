@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 2108210716, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: Gold (TMP_ColorGradient)
   m_EditorClassIdentifier: 
-  topLeft: {r: 0, g: 0.9558824, b: 0.12525368, a: 1}
+  topLeft: {r: 0.903144, g: 0.9558824, b: 0, a: 1}
   topRight: {r: 0, g: 1, b: 0.33793116, a: 1}
   bottomLeft: {r: 0.120404415, g: 0.7888563, b: 0.9632353, a: 1}
-  bottomRight: {r: 0.24448529, g: 0.9475911, b: 0.97794116, a: 1}
+  bottomRight: {r: 0.17517301, g: 0.38787735, b: 0.39705884, a: 1}

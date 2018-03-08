@@ -46,15 +46,26 @@ public class ShedList : MonoBehaviour {
             go.transform.SetParent(this.transform, false);
 
             go.transform.Find("PlantName").GetComponent<Text>().text = name;
-            go.transform.Find("WaterInterval").GetComponent<Text>().text = shedManager.GetPlantFeature(name, "waterInterval").ToString();
-            go.transform.Find("Experience").GetComponent<Text>().text = shedManager.GetPlantFeature(name, "experience").ToString();
+            go.transform.Find("WaterInterval").GetComponent<Text>().text = shedManager.GetPlantFeature(name, "waterInterval").ToString() + "m";
+            go.transform.Find("Experience").GetComponent<Text>().text = shedManager.GetPlantFeature(name, "experience").ToString() + "xp";
 
             int lastWatered = shedManager.GetPlantFeature(name, "lastWatered");
             DateTime now = DateTime.Now;
             int currentTime = (int)now.Subtract(DateTime.MinValue).TotalMinutes;
             int lastWateredDisplay = currentTime - lastWatered;
+
+            //set the last watered with hours and minutes
+            int hours;
+            if(lastWateredDisplay > 60) {
+                hours = lastWateredDisplay / 60;
+                lastWateredDisplay = lastWateredDisplay % 60;
+                go.transform.Find("LastWatered").GetComponent<Text>().text = hours.ToString() + "h " + lastWateredDisplay.ToString() + "m";
+            } else
+            {
+                go.transform.Find("LastWatered").GetComponent<Text>().text = lastWateredDisplay.ToString() + "m";
+            }
      
-            go.transform.Find("LastWatered").GetComponent<Text>().text = lastWateredDisplay.ToString() + " Minutes";
+            
 
         }
     }

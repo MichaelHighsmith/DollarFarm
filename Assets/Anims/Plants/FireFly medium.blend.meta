@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 938837437efc22445a9bc6ea92602c81
+timeCreated: 1520542459
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cone_000
+    100002: Cone_001
+    100004: Cone_003
+    100006: Cylinder
+    100008: Cylinder_001
+    100010: Cylinder_002
+    100012: Cylinder_003
+    100014: //RootNode
+    400000: Cone_000
+    400002: Cone_001
+    400004: Cone_003
+    400006: Cylinder
+    400008: Cylinder_001
+    400010: Cylinder_002
+    400012: Cylinder_003
+    400014: //RootNode
+    2100000: Material_002
+    2100002: Material_001
+    2100004: Material_000
+    2100006: Material_003
+    2100008: Material_006
+    2100010: Material
+    2100012: Material_004
+    2100014: Material_005
+    2100016: Material_007
+    2100018: Material_008
+    2100020: Material_009
+    2100022: Material_010
+    2100024: Material_018
+    2100026: Material_017
+    2100028: Material_016
+    2100030: Material_015
+    2100032: Material_014
+    2100034: Material_013
+    2100036: Material_012
+    2100038: Material_011
+    2100040: Material_026
+    2100042: Material_025
+    2100044: Material_024
+    2100046: Material_023
+    2100048: Material_022
+    2100050: Material_021
+    2100052: Material_020
+    2100054: Material_019
+    2300000: Cone_000
+    2300002: Cone_001
+    2300004: Cone_003
+    2300006: Cylinder
+    2300008: Cylinder_001
+    2300010: Cylinder_002
+    2300012: Cylinder_003
+    3300000: Cone_000
+    3300002: Cone_001
+    3300004: Cone_003
+    3300006: Cylinder
+    3300008: Cylinder_001
+    3300010: Cylinder_002
+    3300012: Cylinder_003
+    4300000: Cylinder_001
+    4300002: Cylinder
+    4300004: Cylinder_002
+    4300006: Cylinder_003
+    4300008: Cone_003
+    4300010: Cone_000
+    4300012: Cone_001
+    7400000: FireFly medium
+    9500000: //RootNode
+    11100000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: FireFly medium
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
